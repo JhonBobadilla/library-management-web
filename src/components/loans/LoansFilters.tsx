@@ -30,7 +30,7 @@ export default function LoansFilters({ users, books, isLoading, onApply, onClear
   }
 
   return (
-    <form className="loans-filters" onSubmit={handleApply}>
+    <form className="loans-filters filters-card" onSubmit={handleApply}>
       <div className="form-field">
         <label htmlFor="filterUserId">Usuario</label>
         <select

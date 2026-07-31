@@ -110,7 +110,7 @@ export default function BookForm({ book, serverError, isSaving, onSubmit, onCanc
   }
 
   return (
-    <div className="form-wrapper">
+    <div className="form-card">
       <h3 className="form-title">{isEditing ? 'Editar libro' : 'Crear libro'}</h3>
 
       {serverError && (

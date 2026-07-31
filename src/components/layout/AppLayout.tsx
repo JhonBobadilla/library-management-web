@@ -2,37 +2,37 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 export default function AppLayout() {
   return (
-    <div className="app-layout">
-      <header className="app-header">
-        <div className="header-content">
-          <h1 className="app-title">Gestión de Biblioteca</h1>
-          <p className="app-description">
-            Aplicación para administrar usuarios, libros y préstamos
-          </p>
+    <div className="app-shell">
+      <aside className="sidebar">
+        <div className="sidebar-brand">
+          <h1 className="sidebar-title">Biblioteca</h1>
+          <span className="sidebar-subtitle">Panel administrativo</span>
         </div>
-        <nav className="app-nav">
+        <nav className="sidebar-nav">
           <NavLink
             to="/users"
-            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
           >
             Usuarios
           </NavLink>
           <NavLink
             to="/books"
-            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
           >
             Libros
           </NavLink>
           <NavLink
             to="/loans"
-            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
           >
             Préstamos
           </NavLink>
         </nav>
-      </header>
-      <main className="app-main">
-        <Outlet />
+      </aside>
+      <main className="main-content">
+        <div className="page-container">
+          <Outlet />
+        </div>
       </main>
     </div>
   )

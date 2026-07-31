@@ -94,7 +94,7 @@ export default function UserForm({ user, serverError, isSaving, onSubmit, onCanc
   const isEditing = user !== null
 
   return (
-    <div className="user-form-wrapper">
+    <div className="form-card">
       <h3 className="form-title">{isEditing ? 'Editar usuario' : 'Crear usuario'}</h3>
 
       {serverError && (
@@ -103,7 +103,7 @@ export default function UserForm({ user, serverError, isSaving, onSubmit, onCanc
         </div>
       )}
 
-      <form className="user-form" onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="form-grid">
           <div className="form-field">
             <label htmlFor="firstName">Nombres</label>
