@@ -122,7 +122,7 @@ export default function LoanForm({ serverError, isSaving, onSubmit, onCancel }: 
   const selectedBook = books.find((b) => b.id === bookId)
 
   return (
-    <div className="form-wrapper">
+    <div className="form-card">
       <h3 className="form-title">Registrar préstamo</h3>
 
       {serverError && (

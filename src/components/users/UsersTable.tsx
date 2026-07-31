@@ -28,7 +28,8 @@ export default function UsersTable({ users, deletingId, onEdit, onDelete }: User
   }
 
   return (
-    <div className="table-wrapper">
+    <div className="table-card">
+      <div className="table-wrapper">
       <table className="data-table">
         <thead>
           <tr>
@@ -66,6 +67,7 @@ export default function UsersTable({ users, deletingId, onEdit, onDelete }: User
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

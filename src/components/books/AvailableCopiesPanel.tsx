@@ -51,7 +51,7 @@ export default function AvailableCopiesPanel({ initialIsbn, initialBook, onClose
   const showResults = searched && !isLoading && !error
 
   return (
-    <div className="copies-panel">
+    <div className="form-card">
       <div className="copies-panel-header">
         <h3 className="form-title">Consultar ejemplares disponibles</h3>
         <button type="button" className="btn btn--small btn--secondary" onClick={onClose}>
@@ -102,7 +102,8 @@ export default function AvailableCopiesPanel({ initialIsbn, initialBook, onClose
           {data.copies.length === 0 ? (
             <p className="empty-state">No hay ejemplares disponibles para este libro.</p>
           ) : (
-            <div className="table-wrapper">
+            <div className="table-card" style={{ padding: 0 }}>
+              <div className="table-wrapper">
               <table className="data-table">
                 <thead>
                   <tr>
@@ -125,6 +126,7 @@ export default function AvailableCopiesPanel({ initialIsbn, initialBook, onClose
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           )}
         </div>
