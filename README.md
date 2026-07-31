@@ -60,10 +60,16 @@ docker compose ps
 
 La aplicación queda disponible en `http://localhost:3000`.
 
+### Detener el contenedor
+
+```bash
+docker compose down
+```
+
 ## Ejecución local
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -79,23 +85,33 @@ npm run dev
 
 El Frontend consume el Backend a través de `VITE_API_BASE_URL`. La instancia central de Axios se encuentra en `src/config/api.ts` y usa un único valor de respaldo. No se repite la URL en componentes ni servicios.
 
+El Backend se ejecuta por separado:
+
+- Repositorio del Backend: https://github.com/JhonBobadilla/library-management-api
+- API por defecto: http://localhost:8080/api/v1
+- Healthcheck: http://localhost:8080/actuator/health
+
 ## Estructura principal
 
 ```
-src/
-├── components/
-│   ├── books/
-│   ├── layout/
-│   ├── loans/
-│   └── users/
-├── config/
-├── pages/
-├── services/
-├── types/
-├── utils/
-├── App.tsx
-├── main.tsx
-└── index.css
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── .dockerignore
+├── src/
+│   ├── components/
+│   │   ├── books/
+│   │   ├── layout/
+│   │   ├── loans/
+│   │   └── users/
+│   ├── config/
+│   ├── pages/
+│   ├── services/
+│   ├── types/
+│   ├── utils/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
 ```
 
 ## Verificación
@@ -107,6 +123,12 @@ npm run lint
 
 ## Consideraciones importantes
 
-- `VITE_API_BASE_URL` es una variable de compilación: al cambiar su valor con Docker, se debe reconstruir la imagen con `docker compose build`.
+- Nginx permite recargar directamente `/users`, `/books` y `/loans` sin producir 404.
+- El Backend debe permitir solicitudes desde el origen del Frontend.
+- La aplicación consume datos reales del Backend; no utiliza datos simulados.
+- Un usuario con préstamos registrados no puede eliminarse.
+- Un libro con préstamos registrados no puede eliminarse.
+- Un usuario solo puede tener un préstamo abierto.
+- Al cambiar `VITE_API_BASE_URL` en Docker se debe reconstruir la imagen con `docker compose build`.
 - El archivo `.env.example` es la única plantilla de variables; no se incluyen archivos `.env` reales en el repositorio.
 - El Frontend no incluye autenticación ni control de roles.
