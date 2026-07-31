@@ -25,7 +25,8 @@ export default function BooksTable({ books, deletingId, onEdit, onViewCopies, on
   }
 
   return (
-    <div className="table-wrapper">
+    <div className="table-card">
+      <div className="table-wrapper">
       <table className="data-table">
         <thead>
           <tr>
@@ -70,6 +71,7 @@ export default function BooksTable({ books, deletingId, onEdit, onViewCopies, on
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }
