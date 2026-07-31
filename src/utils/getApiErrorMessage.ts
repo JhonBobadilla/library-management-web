@@ -6,6 +6,16 @@ const API_ERROR_MESSAGES: Record<string, string> = {
   INVALID_BIRTH_DATE: 'La fecha de nacimiento no puede ser posterior a la fecha actual.',
   USER_HAS_LOANS: 'El usuario tiene préstamos registrados y no puede ser eliminado.',
   USER_NOT_FOUND: 'El usuario no fue encontrado.',
+  ISBN_ALREADY_EXISTS: 'El ISBN ya está registrado.',
+  BOOK_NOT_FOUND: 'El libro no fue encontrado.',
+  BOOK_HAS_LOANS: 'El libro tiene préstamos registrados y no puede ser eliminado.',
+  BOOK_HAS_LOANED_COPIES: 'El libro tiene ejemplares prestados y no puede ser eliminado.',
+  BOOK_COPY_NOT_FOUND: 'El ejemplar seleccionado no fue encontrado.',
+  BOOK_COPY_NOT_AVAILABLE: 'El ejemplar seleccionado no está disponible para préstamo.',
+  USER_ALREADY_HAS_OPEN_LOAN: 'El usuario ya tiene un préstamo abierto.',
+  LOAN_NOT_FOUND: 'El préstamo no fue encontrado.',
+  LOAN_ALREADY_RETURNED: 'El préstamo ya había sido devuelto.',
+  INVALID_DATES: 'La fecha límite no puede ser anterior a la fecha de préstamo.',
 }
 
 const VALIDATION_FIELD_MESSAGES: Record<string, string> = {
@@ -13,6 +23,16 @@ const VALIDATION_FIELD_MESSAGES: Record<string, string> = {
   lastName: 'Los apellidos son obligatorios o no son válidos.',
   email: 'El correo electrónico no es válido.',
   birthDate: 'La fecha de nacimiento no es válida.',
+  title: 'El título es obligatorio o no es válido.',
+  isbn: 'El ISBN es obligatorio o no es válido.',
+  edition: 'La edición no es válida.',
+  publicationDate: 'La fecha de publicación no es válida.',
+  author: 'El autor es obligatorio o no es válido.',
+  numberOfCopies: 'La cantidad de ejemplares debe estar entre 1 y 100.',
+  userId: 'Debe seleccionar un usuario.',
+  bookCopyId: 'Debe seleccionar un ejemplar disponible.',
+  loanDate: 'La fecha de préstamo es obligatoria o no es válida.',
+  dueDate: 'La fecha límite es obligatoria o no es válida.',
 }
 
 function getHttpStatusMessage(status: number): string | null {
